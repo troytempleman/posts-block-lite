@@ -157,7 +157,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						{ displayFeaturedImage && post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && (
 							<div className='wp-block-tt-posts-post-featured-image'>
 								<img 
-									src={ post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url }
+									src={ post._embedded['wp:featuredmedia'][0].source_url }
 									alt={ post._embedded['wp:featuredmedia'][0].alt_text }
 								/>
 							</div>

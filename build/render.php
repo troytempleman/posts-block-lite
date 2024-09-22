@@ -1,5 +1,10 @@
 <?php
 
+// Exit if accessed directly 
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // Attributes
 $layout = isset( $attributes['layout'] ) ? $attributes['layout'] : null;   
 $text_align = isset( $attributes['textAlign'] ) ? $attributes['textAlign'] : null;
@@ -119,7 +124,7 @@ wp_reset_postdata();
 
 // Block content
 $block_content = '<' . $wrapper . ' ' . $wrapper_attributes .'>';
-$block_content .= $layout === 'carousel' ? '<div class="carousel" data-slick='. $data_slick . '>' . $posts . '</div>' : $posts;
+$block_content .= $layout === 'carousel' ? '<div class="carousel" data-slick='. $data_slick . '>' . wp_kses_post( $posts ) . '</div>' : wp_kses_post( $posts );
 $block_content .= '</' . $wrapper . '>';
 echo $block_content;
 
