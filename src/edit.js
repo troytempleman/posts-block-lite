@@ -62,7 +62,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		displayTitle,
 		titleHasHeading,
 		titleHeading,
-		displayDate, 
+		displayDate,
 		displayAuthor, 
 		displayExcerpt,
 		excerptLength,
@@ -92,7 +92,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				'has-dates': displayDate
 			} ),
 		} );
-	
+		
 		// Carousel settings
 		var carouselSettings = {
 			dots: displayCarouselDots,
@@ -123,14 +123,14 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				orderBy,
 				order
 			]
-		);	
+		);
 		
 		// Posts
 		const posts = (
 			query && query.map( ( post ) => {
-			
+				
 				// Excerpt
-				let excerpt = ( undefined !== post.excerpt && post.excerpt && undefined !== post.excerpt.rendered ? post.excerpt.rendered : '' ); 
+				let excerpt = ( undefined !== post.excerpt && post.excerpt && undefined !== post.excerpt.rendered ? post.excerpt.rendered : '' );
 				const excerptElement = document.createElement( 'div' );
 				excerptElement.innerHTML = excerpt;
 				excerpt = excerptElement.textContent || excerptElement.innerText || '';
@@ -141,12 +141,12 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							.trim()
 							.split( ' ', excerptLength )
 							.join( ' ' ) }
-						{ __( '… ', 'posts-block' ) }
+						{ __( '… ', 'posts-block-lite' ) }
 					</>
 				) : (
 					excerpt
 				);
-			
+				
 				// Post
 				const Post = layout === 'carousel' ? 'div' : 'li';
 				return (
@@ -188,7 +188,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					    	<div className='wp-block-tt-posts-post-meta'>
 					    		{ displayDate ? (
 									<span className='wp-block-tt-posts-post-meta-date'>
-										{ __( 'Posted ', 'posts-block' ) }
+										{ __( 'Posted ', 'posts-block-lite' ) }
 										<time
 											className='wp-block-tt-posts-post-meta-date-time'
 											dateTime={ format( 'c', post.date_gmt ) }
@@ -201,7 +201,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					          	) }
 					    		{ displayAuthor && post._embedded && post._embedded.author && post._embedded.author[0] ? (
 									<span className='wp-block-tt-posts-post-meta-author'>
-										{ __( 'by ', 'posts-block' ) }
+										{ __( 'by ', 'posts-block-lite' ) }
 										<a 
 											className='wp-block-tt-posts-post-meta-author-link'
 											href={ post._embedded.author[0].link }
@@ -240,7 +240,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				)
 			} ) 
 		);
-		
+
 		return(		
 			<Wrapper { ...wrapperAttributes }>
 				{ layout === 'carousel' ? <Slider { ...carouselSettings }>{ posts }</Slider> : posts }
@@ -254,16 +254,16 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		return(	
 			<>
 				<InspectorControls>
-					<PanelBody title={ __( 'Settings', 'posts-block' ) }>
+					<PanelBody title={ __( 'Settings', 'posts-block-lite' ) }>
 						<RangeControl
-							label={ __( 'Number of posts', 'posts-block' ) }
+							label={ __( 'Number of posts', 'posts-block-lite' ) }
 							value={ numberOfPosts }
 							onChange={ ( value ) => setAttributes( { numberOfPosts: value } ) }
 							min={ 1 }
 							max={ 10 }
 						/>
 						<SelectControl
-							label={ __( 'Order by', 'posts-block' ) }
+							label={ __( 'Order by', 'posts-block-lite' ) }
 							value={ orderBy }
 							options={ [
 								{ label: 'Author', value: 'author' },
@@ -273,7 +273,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							onChange={ ( value ) => setAttributes( { orderBy: value } ) }
 						/>
 						<SelectControl
-							label={ __( 'Order', 'posts-block' ) }
+							label={ __( 'Order', 'posts-block-lite' ) }
 							value={ order }
 							options={ [
 								{ label: 'Ascending', value: 'asc' },
@@ -283,7 +283,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						/>
 						{ layout === 'grid' && (
 							<RangeControl
-								label={ __( 'Number of columns', 'posts-block' ) }
+								label={ __( 'Number of columns', 'posts-block-lite' ) }
 								value={ columns }
 								onChange={ ( value ) => setAttributes( { columns: value } ) }
 								min={ 1 }
@@ -292,25 +292,25 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							/>
 						) }
 						<ToggleControl
-							label={ __( 'Display featured image', 'posts-block' ) }
+							label={ __( 'Display featured image', 'posts-block-lite' ) }
 							checked={ displayFeaturedImage }
 							onChange={ ( value ) => setAttributes( { displayFeaturedImage: value } ) }
 						/>
 						<ToggleControl
-							label={ __( 'Display title', 'posts-block' ) }
+							label={ __( 'Display title', 'posts-block-lite' ) }
 							checked={ displayTitle }
 							onChange={ ( value ) => setAttributes( { displayTitle: value } ) }
 						/>
 						{ displayTitle && (
 							<ToggleControl
-								label={ __( 'Add heading to title', 'posts-block' ) }
+								label={ __( 'Add heading to title', 'posts-block-lite' ) }
 								checked={ titleHasHeading }
 								onChange={ ( value ) => setAttributes( { titleHasHeading: value } ) }
 							/>
 						) }
 						{ titleHasHeading && (
 							<SelectControl
-								label={ __( 'Title heading', 'posts-block' ) }
+								label={ __( 'Title heading', 'posts-block-lite' ) }
 								value={ titleHeading }
 								options={ [
 									{ label: "Heading 1", value: '1' },
@@ -324,23 +324,23 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							/>
 						) }
 						<ToggleControl
-							label={ __( 'Display author', 'posts-block' ) }
+							label={ __( 'Display author', 'posts-block-lite' ) }
 							checked={ displayAuthor }
 							onChange={ ( value ) => setAttributes( { displayAuthor: value } ) }
 						/>
 						<ToggleControl
-							label={ __( 'Display date', 'posts-block' ) }
+							label={ __( 'Display date', 'posts-block-lite' ) }
 							checked={ displayDate }
 							onChange={ ( value ) => setAttributes( { displayDate: value } ) }
 						/>
 						<ToggleControl
-							label={ __( 'Display excerpt', 'posts-block' ) }
+							label={ __( 'Display excerpt', 'posts-block-lite' ) }
 							checked={ displayExcerpt }
 							onChange={ ( value ) => setAttributes( { displayExcerpt: value } ) }
 						/>
 						{ displayExcerpt && (
 							<RangeControl
-								label={ __( 'Maximum number of words in excerpt', 'posts-block' ) }
+								label={ __( 'Maximum number of words in excerpt', 'posts-block-lite' ) }
 								value={ excerptLength }
 								onChange={ ( value ) => setAttributes( { excerptLength: value } ) }
 								min={ 10 }
@@ -348,56 +348,56 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							/>
 						) }
 						<ToggleControl
-							label={ __( 'Display content', 'posts-block' ) }
+							label={ __( 'Display content', 'posts-block-lite' ) }
 							checked={ displayContent }
 							onChange={ ( value ) => setAttributes( { displayContent: value } ) }
 						/>
 						<ToggleControl
-							label={ __( 'Display link', 'posts-block' ) }
+							label={ __( 'Display link', 'posts-block-lite' ) }
 							checked={ displayLink }
 							onChange={ ( value ) => setAttributes( { displayLink: value } ) }
 						/>
 						{ displayLink && (
 							<TextControl
-								label={ __( 'Link text', 'posts-block' ) }
+								label={ __( 'Link text', 'posts-block-lite' ) }
 								value={ linkText }
 								onChange={ ( value ) => setAttributes( { linkText: value } ) }
 							/>
 						) }
 					</PanelBody>
 					{ layout === 'carousel' && (
-						<PanelBody title={ __( 'Carousel', 'posts-block' ) }>	
+						<PanelBody title={ __( 'Carousel', 'posts-block-lite' ) }>	
 							<ToggleControl
-								label={ __( 'Display dots', 'posts-block'  ) }
+								label={ __( 'Display dots', 'posts-block-lite'  ) }
 								checked={ displayCarouselDots }
 								onChange={ ( value ) => setAttributes( { displayCarouselDots: value } ) }
 							/>
 							<ToggleControl
-								label={ __( 'Display arrows', 'posts-block'  ) }
+								label={ __( 'Display arrows', 'posts-block-lite'  ) }
 								checked={ displayCarouselArrows }
 								onChange={ ( value ) => setAttributes( { displayCarouselArrows: value } ) }
 							/>
 							<ToggleControl
-								label={ __( 'Infinite', 'posts-block' ) }
+								label={ __( 'Infinite', 'posts-block-lite' ) }
 								checked={ carouselInfinite }
 								onChange={ ( value ) => setAttributes( { carouselInfinite: value } ) }
 							/>
 							<NumberControl
-								label={ __( 'Speed', 'posts-block' ) }
+								label={ __( 'Speed', 'posts-block-lite' ) }
 								isShiftStepEnabled={ true }
 								shiftStep={ 10 }
 								value={ carouselSpeed }
 								onChange={ ( value ) => setAttributes( { carouselSpeed: value } ) }
 							/>
 							<RangeControl
-								label={ __( 'Slides to show', 'posts-block' ) }
+								label={ __( 'Slides to show', 'posts-block-lite' ) }
 								min={ 1 }
 								max={ 10 }
 								value={ carouselSlidesToShow }
 								onChange={ ( value ) => setAttributes( { carouselSlidesToShow: value } ) }
 							/>
 							<RangeControl
-								label={ __( 'Slides to scroll', 'posts-block' ) }
+								label={ __( 'Slides to scroll', 'posts-block-lite' ) }
 								min={ 1 }
 								max={ 10 }
 								value={ carouselSlidesToScroll }
@@ -417,19 +417,19 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				<ToolbarGroup>
 			        <ToolbarButton
 			            icon={ icons.list }
-						label={ __( 'List view', 'posts-block' ) }
+						label={ __( 'List view', 'posts-block-lite' ) }
 						onClick={ () => setAttributes( { layout: 'list' } ) }
 						isActive={ layout === 'list' }
 			        />
 			        <ToolbarButton
 			            icon={ grid }
-						label={ __( 'Grid view', 'posts-block' ) }
+						label={ __( 'Grid view', 'posts-block-lite' ) }
 						onClick={ () => setAttributes( { layout: 'grid' } ) }
 						isActive={ layout === 'grid' } 
 			        />
 					<ToolbarButton
 			            icon={ icons.carousel }
-						label={ __( 'Carousel view', 'posts-block' ) }
+						label={ __( 'Carousel view', 'posts-block-lite' ) }
 						onClick={ () => setAttributes( { layout: 'carousel' } ) }
 						isActive={ layout === 'carousel' } 
 			        />

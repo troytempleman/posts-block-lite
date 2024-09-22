@@ -52,7 +52,7 @@ if( $layout === 'carousel' ) {
 		'slidesToShow' => $carousel_slides_to_show, 
 		'slidesToScroll' => $carousel_slides_to_scroll
 	);
-	$data_slick = json_encode( $carousel_settings );
+	$data_slick = esc_attr( wp_json_encode( $carousel_settings ) );
 }
 
 // Query
@@ -92,12 +92,12 @@ if ( $query->have_posts() ) {
 			if( $display_date ) {
 				$date = get_the_date();
 				$date_iso_8601 = esc_attr( get_the_date( 'c' ) );
-				$posts .= '<span class="wp-block-tt-posts-post-meta-date">' .  __( 'Posted ', 'posts-block' ) . '<time class="wp-block-tt-posts-post-meta-date-time" datetime="' . $date_iso_8601 . '">' . $date . '</time></span>' . ' ';
+				$posts .= '<span class="wp-block-tt-posts-post-meta-date">' .  __( 'Posted ', 'posts-block-lite' ) . '<time class="wp-block-tt-posts-post-meta-date-time" datetime="' . $date_iso_8601 . '">' . $date . '</time></span>' . ' ';
 			}
 			if( $display_author ) {
 				$author = get_the_author();
 				$author_url = esc_url( get_author_posts_url( get_the_author_meta( get_the_ID() ) ) );
-				$byline = sprintf( __( 'by %s', 'posts-block' ), '<a class="wp-block-tt-posts-post-meta-author-link" href="' . $author_url . '">' . $author . '</a>' );
+				$byline = sprintf( __( 'by %s', 'posts-block-lite' ), '<a class="wp-block-tt-posts-post-meta-author-link" href="' . $author_url . '">' . $author . '</a>' );
 				$posts .= '<span class="wp-block-tt-posts-post-meta-author">' . $byline . '</span>';
 			}
 			$posts .= '</div>';
@@ -108,7 +108,6 @@ if ( $query->have_posts() ) {
 		}
 		if( $display_content ) {
 			$content = get_the_content();
-			//$posts .= '<div class="wp-block-tt-posts-post-content">' . wp_kses_post( $content ) . '</div>';
 			$posts .= '<div class="wp-block-tt-posts-post-content">' . $content . '</div>';	
 		}
 		if( $display_link ) {
@@ -118,14 +117,14 @@ if ( $query->have_posts() ) {
 		$posts .= '</' . $post . '>';
     endwhile;
 } else {
-    __( 'Not Found.', 'posts-block' );
+    __( 'Not Found.', 'posts-block-lite' );
 }
 wp_reset_postdata();
 
 // Block content
 $block_content = '<' . $wrapper . ' ' . $wrapper_attributes .'>';
-$block_content .= $layout === 'carousel' ? '<div class="carousel" data-slick='. $data_slick . '>' . wp_kses_post( $posts ) . '</div>' : wp_kses_post( $posts );
+$block_content .= $layout === 'carousel' ? '<div class="carousel" data-slick='. $data_slick . '>' . $posts . '</div>' : $posts;
 $block_content .= '</' . $wrapper . '>';
-echo $block_content;
+echo wp_kses_post( $block_content );
 
 ?>
