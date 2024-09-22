@@ -1,0 +1,138 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tt/posts",
+	"version": "0.1.0",
+	"title": "Posts",
+	"category": "widgets",
+	"description": "A block that displays posts in a list, grid or carousel.",
+	"keywords": [ "latest posts", "recent posts", "posts", "block", "carousel", "accessible", "responsive" ],
+	"textdomain": "posts",
+	"attributes": {	
+		"layout": {
+			"type": "string"
+		},
+		"textAlign": {
+			"type": "string"
+		},
+		"numberOfPosts": {
+			"type": "number",
+			"default": 5
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"columns": {
+			"type": "number",
+			"default": 1
+		},
+		"displayFeaturedImage": {
+			"type": "boolean"
+		},
+		"displayTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleHasHeading": {
+			"type": "boolean"
+		},
+		"titleHeading": {
+			"type": "number",
+			"default": 3
+		},
+		"displayDate": {
+			"type": "boolean"
+		},
+		"displayAuthor": {
+			"type": "boolean"
+		},
+		"displayExcerpt": {
+			"type": "boolean"
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 55
+		},
+		"displayContent": {
+			"type": "boolean"
+		},
+		"displayLink": {
+			"type": "boolean"
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Read more"
+		},
+		"displayCarousel": {
+			"type": "boolean"
+		},
+		"displayCarouselDots": {
+			"type": "boolean",
+			"default": true
+		},
+		"displayCarouselArrows": {
+			"type": "boolean",
+			"default": true
+		},
+		"carouselInfinite": {
+			"type": "boolean",
+			"default": true
+		},
+		"carouselSpeed": {
+			"type": "number",
+			"default": 300
+		},
+		"carouselSlidesToShow": {
+			"type": "number",
+			"default": 3
+		},
+		"carouselSlidesToScroll": {
+			"type": "number",
+			"default": 3
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"align": true,
+		"className": false,
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true,
+				"link": true
+			}
+		},
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
