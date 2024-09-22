@@ -3,14 +3,14 @@
  * Plugin Name:       Posts Block Lite
  * Plugin URI:        https://github.com/troytempleman/posts-block-lite
  * Description:       A block that displays posts in a list, grid or carousel. 
- * Version:           0.1.1
+ * Version:           0.1.2
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Author:            Troy Templeman
- * Author URI:        http://troytempleman.com
+ * Author URI:        https://troytempleman.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       posts-block
+ * Text Domain:       posts-block-lite
  * Domain Path:       /languages
  */
  

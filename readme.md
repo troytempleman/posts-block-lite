@@ -2,10 +2,10 @@
 
 **Contributors:** troytempleman \
 **Donate link:** https://www.buymeacoffee.com/troytempleman \
-**Tags:** latest posts, recent posts, posts, block, carousel, accessible, responsive \
+**Tags:** latest posts, recent posts, posts, block, carousel \
 **Requires at least:** 6.0 \
 **Tested up to:** 6.4.1 \
-**Stable tag:** 0.1.1 \
+**Stable tag:** 0.1.2 \
 **Requires PHP:** 7.4 \
 **License:** GPLv2 or later \
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,7 +94,7 @@ Upgrade to Pro at [https://troytempleman.com/wordpress/blocks/posts-block/](http
   * List **[Pro]** 
   * Grid **[Pro]** 
   * Carousel **[Pro]** 
-  
+
 ### Demo
 
 [https://troytempleman.com/wordpress/blocks/posts-block/](https://troytempleman.com/wordpress/blocks/posts-block/)
@@ -121,7 +121,7 @@ Posts Block Lite will output a Posts block with the following HTML structure:
 	
 ## Support
 
-If you need help with Posts Block Lite, please submit a ticket on the [Support]https://wordpress.org/support/plugin/posts-block-lite) forum.
+If you need help with Posts Block Lite, please submit a ticket on the [Support](https://wordpress.org/support/plugin/posts-block-lite) forum.
 
 ## Donate
 
@@ -246,7 +246,16 @@ Please see **Installation** section.
 
 ## Changelog
 
-### 0.1.1 - May 20, 2024 
+### 0.1.1 - September 15, 2024
+
+* Changed: Text domains from `posts-block` to `posts-block-lite`.
+* Changed: `json_encode` to `esc_attr( wp_json_encode )` in `build/render.php` and `src/render.php`.
+* Changed: `wp_kses_post` filter from `$posts` to `$content` in `build/render.php` and `src/render.php`.
+* Updated: Version in `build/block.json` and `src/block.json`.
+* Updated: Version in `package.json` and `posts-block-lite.php`.
+* Updated: Stable tag and changelog in `readme.md` and `readme.txt`.
+
+### 0.1.1 - May 20, 2024
 
 * Added: Code to prevent direct file access in `build/render.php` and `src/render.php`.
 * Added: Security improvement by adding `wp_kses_post` filter to `$block_content` in build/render.php` and `src/render.php`.
@@ -257,7 +266,7 @@ Please see **Installation** section.
 * Updated: Version in `package.json` and `posts-block-lite.php`.
 * Updated: Stable tag and changelog in `readme.md` and `readme.txt`.
 
-### 0.1.0 - November 15, 2023
+### 0.1.0 - November 15, 2023 =
 
 * Initial release
 

@@ -2,14 +2,14 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "tt/posts",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"title": "Posts",
 	"category": "widgets",
 	"description": "A block that displays posts in a list, grid or carousel.",
 	"keywords": [ "latest posts", "recent posts", "posts", "block", "carousel", "accessible", "responsive" ],
 	"textdomain": "posts",
 	"attributes": {	
-		"layout": {
+        "layout": {
 			"type": "string"
 		},
 		"textAlign": {

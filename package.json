@@ -1,8 +1,8 @@
 {
 	"name": "posts-block",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A block that displays posts in a list, grid or carousel.",
-	"author": "Troy Templeman <troy@troytempleman.com> (http://troytempleman.com/)",
+	"author": "Troy Templeman <troy@troytempleman.com> (https://troytempleman.com/)",
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"main": "build/index.js",
