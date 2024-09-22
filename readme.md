@@ -5,7 +5,7 @@
 **Tags:** latest posts, recent posts, posts, block, carousel, accessible, responsive \
 **Requires at least:** 6.0 \
 **Tested up to:** 6.4.1 \
-**Stable tag:** 0.1.0 \
+**Stable tag:** 0.1.1 \
 **Requires PHP:** 7.4 \
 **License:** GPLv2 or later \
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,6 +15,8 @@ A block that displays posts in a list, grid or carousel.
 ## Description
 
 Posts Block Lite adds a Posts block to the block editor inserter that can be added to display posts in a list, grid or carousel.
+
+Upgrade to Pro at [https://troytempleman.com/wordpress/blocks/posts-block/](https://troytempleman.com/wordpress/blocks/posts-block/).
 
 ### Features
 
@@ -92,6 +94,10 @@ Posts Block Lite adds a Posts block to the block editor inserter that can be add
   * List **[Pro]** 
   * Grid **[Pro]** 
   * Carousel **[Pro]** 
+  
+### Demo
+
+[https://troytempleman.com/wordpress/blocks/posts-block/](https://troytempleman.com/wordpress/blocks/posts-block/)
 
 ### HTML
 
@@ -239,6 +245,17 @@ Please see **Installation** section.
 7. Posts block on the front end.
 
 ## Changelog
+
+### 0.1.1 - May 20, 2024 
+
+* Added: Code to prevent direct file access in `build/render.php` and `src/render.php`.
+* Added: Security improvement by adding `wp_kses_post` filter to `$block_content` in build/render.php` and `src/render.php`.
+* Changed: Function names from `posts_block_*` to `posts_block_lite_*` in `posts-block-lite.php`.
+* Changed: Text domains from `posts-block-lite` to `posts-block`.
+* Removed: `src/slick/config.rb`
+* Updated: Version in `build/block.json` and `src/block.json`.
+* Updated: Version in `package.json` and `posts-block-lite.php`.
+* Updated: Stable tag and changelog in `readme.md` and `readme.txt`.
 
 ### 0.1.0 - November 15, 2023
 

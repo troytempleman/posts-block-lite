@@ -3,7 +3,7 @@
  * Plugin Name:       Posts Block Lite
  * Plugin URI:        https://github.com/troytempleman/posts-block-lite
  * Description:       A block that displays posts in a list, grid or carousel. 
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Author:            Troy Templeman
@@ -20,15 +20,15 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 // Register block
-function posts_block_register() {
+function posts_block_lite_register() {
 	register_block_type( 
 		__DIR__ . '/build'
 	);
 }
-add_action( 'init', 'posts_block_register' );
+add_action( 'init', 'posts_block_lite_register' );
 
 // Block assets
-function posts_block_assets() {
+function posts_block_lite_assets() {
 	
 	// Front end
 	if( ! is_admin() ) {
@@ -65,4 +65,4 @@ function posts_block_assets() {
 		);
 	}
 }
-add_action( 'enqueue_block_assets', 'posts_block_assets' );
+add_action( 'enqueue_block_assets', 'posts_block_lite_assets' );
