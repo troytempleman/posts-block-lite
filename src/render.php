@@ -92,11 +92,13 @@ if ( $query->have_posts() ) {
 			if( $display_date ) {
 				$date = get_the_date();
 				$date_iso_8601 = esc_attr( get_the_date( 'c' ) );
+				/* translators: Posted */
 				$posts .= '<span class="wp-block-tt-posts-post-meta-date">' .  __( 'Posted ', 'posts-block-lite' ) . '<time class="wp-block-tt-posts-post-meta-date-time" datetime="' . $date_iso_8601 . '">' . $date . '</time></span>' . ' ';
 			}
 			if( $display_author ) {
 				$author = get_the_author();
 				$author_url = esc_url( get_author_posts_url( get_the_author_meta( get_the_ID() ) ) );
+				/* translators: %s: Author */
 				$byline = sprintf( __( 'by %s', 'posts-block-lite' ), '<a class="wp-block-tt-posts-post-meta-author-link" href="' . $author_url . '">' . $author . '</a>' );
 				$posts .= '<span class="wp-block-tt-posts-post-meta-author">' . $byline . '</span>';
 			}
@@ -117,6 +119,7 @@ if ( $query->have_posts() ) {
 		$posts .= '</' . $post . '>';
     endwhile;
 } else {
+	/* translators: Not Found */
     __( 'Not Found.', 'posts-block-lite' );
 }
 wp_reset_postdata();
