@@ -4,8 +4,8 @@
 **Donate link:** https://www.buymeacoffee.com/troytempleman \
 **Tags:** latest posts, recent posts, posts, block, carousel \
 **Requires at least:** 6.0 \
-**Tested up to:** 6.4.1 \
-**Stable tag:** 0.1.2 \
+**Tested up to:** 6.6.2 \
+**Stable tag:** 0.1.3 \
 **Requires PHP:** 7.4 \
 **License:** GPLv2 or later \
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
@@ -246,7 +246,14 @@ Please see **Installation** section.
 
 ## Changelog
 
-### 0.1.1 - September 15, 2024
+### 0.1.3 - September 22, 2024
+
+* Added: Translators in `src/render.php`.
+* Updated: Version in `build/block.json` and `src/block.json`.
+* Updated: Version in `package.json` and `posts-block-lite.php`.
+* Updated: Stable tag and changelog in `readme.md` and `readme.txt`.
+
+### 0.1.2 - September 15, 2024
 
 * Changed: Text domains from `posts-block` to `posts-block-lite`.
 * Changed: `json_encode` to `esc_attr( wp_json_encode )` in `build/render.php` and `src/render.php`.

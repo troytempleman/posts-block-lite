@@ -3,7 +3,7 @@
  * Plugin Name:       Posts Block Lite
  * Plugin URI:        https://github.com/troytempleman/posts-block-lite
  * Description:       A block that displays posts in a list, grid or carousel. 
- * Version:           0.1.2
+ * Version:           0.1.3
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Author:            Troy Templeman
@@ -38,7 +38,7 @@ function posts_block_lite_assets() {
 	        'slick-style',
 	        plugins_url( 'posts-block-lite/src/slick/slick.css', dirname( __FILE__ ) ),
 			array(),
-	        '1.6.0',
+	        '1.8.1',
 			'all'
 	    );
 		// Slick theme style
@@ -46,7 +46,7 @@ function posts_block_lite_assets() {
 	        'slick-theme-style',
 	        plugins_url( 'posts-block-lite/src/slick/slick-theme.css', dirname( __FILE__ ) ),
 			array( 'slick-style' ),
-	        '1.6.0',
+	        '1.8.1',
 			'all'
 	    );
 		// Slick 
@@ -54,6 +54,7 @@ function posts_block_lite_assets() {
 			'slick',
 			plugins_url( 'posts-block-lite/src/slick/slick.min.js', dirname( __FILE__ ) ),
 			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'jquery' ), 
+			'1.8.1',
 			true 
 		);
 		// Slick init
@@ -61,6 +62,7 @@ function posts_block_lite_assets() {
 			'slick-init', 
 			plugins_url( 'posts-block-lite/src/slick/slick-init.js', dirname( __FILE__ ) ), 
 			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'jquery' ), 
+			'1.8.1',
 			true 
 		);
 	}
